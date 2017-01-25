@@ -33,25 +33,31 @@ int main()
 {
     int symbol_num = 0, width = 0, height = 0;
     char symbol;
+    std::cout << "Enter the height: ";
+    std::cin >> height;
+    std::cout << "Enter th width: ";
+    std::cin >> width;
     std::cout << "Enter the number of one of the elements(1: * , 2: # , 3: +): ";
-    std::cin >> symbol_num >> width >> height;
+    std::cin >> symbol_num;
     switch (symbol_num) {
     case 1: {
         symbol = '*';
-        rhombus(symbol, width, height);
         break;
     }
     case 2: {
         symbol = '#';
-        rhombus(symbol, width, height);
         break;
     }
     case 3: {
         symbol = '+';
-        rhombus(symbol, width, height);
         break;
     }
+    default: {
+        std::cout << "Wrong number!";
+        return 0;
     }
+    }
+    rhombus(symbol, width, height);
     return 0;
 }
 
