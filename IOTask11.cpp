@@ -47,7 +47,6 @@ void rhombes(int H, char symbol) {
 int main() {
     int H = 0, W = 0, symbol_num = 0;
     std::cin >> H >> W;
-    
     std::cout << "Enter the number of one of the elements(1: * , 2: # , 3: +): ";
     std::cin >> symbol_num;
     auto symbol = getSymbol(symbol_num);
