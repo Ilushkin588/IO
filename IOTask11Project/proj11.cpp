@@ -7,8 +7,10 @@
 
 
 int main() {
-    Rhombes Rhomb;
-    Rhomb.draw();
-    
+    Rhombes Rhomb(7, 1);
+    Rhomb.Draw();
+    Rhombes R2;
+    R2.InputParam();
+    R2.Draw();
     return 0;
 }
