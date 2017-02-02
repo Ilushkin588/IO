@@ -2,40 +2,20 @@
 #include "stdafx.h"
 #include "DrawRhombes.h"
 
-char Rhombes::GetSymb(int symbol_num) {
-    char symbol = '*';
-    switch (symbol_num) {
-    case 2: {
-        symbol = '#';
-        break;
+char Rhombes::GetSymb(Symbol symbol_number){
+    switch (symbol_number) {
+    case Symbol::ceil: 
+    {
+        return '#';
     }
-    case 3: {
-        symbol = '+';
-        break;
-    }
-    default: {
-        symbol = '*';
-        break;
-    }
-    }
-    return symbol;
-char Rhombes::GetSymb(int symbol_num) {
-    char symbol = '*';
-    switch (symbol_num) {
-    case 2: {
-        symbol = '#';
-        break;
-    }
-    case 3: {
-        symbol = '+';
-        break;
+    case Symbol::plus:
+    {
+        return '+';
     }
     default: {
-        symbol = '*';
-        break;
+        return '*';
+   }
     }
-    }
-    return symbol;
 }
 
 void Rhombes::Print(char symbol, int amount) {
@@ -65,12 +45,5 @@ void Rhombes::Draw(){
     }
 }
 
-void Rhombes::InputParam() {
-    std::cout << "Enter the height: ";
-    std::cin >> ofRhombes.height;
-    std::cout << "Enter the number of one of the elements(1: * , 2: # , 3: +): ";
-    std::cin >> ofRhombes.symbol_number;
-}
-
-Rhombes::Rhombes(int H, int symbol_num) :
-    ofRhombes{ H, symbol_num } {};
+Rhombes::Rhombes(int H, Symbol stars) :
+    ofRhombes{H, stars} {};

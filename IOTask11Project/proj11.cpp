@@ -5,12 +5,8 @@
 #include <iostream>
 #include "DrawRhombes.h"
 
-
 int main() {
-    Rhombes Rhomb(7, 1);
+    Rhombes Rhomb(5, Rhombes::Symbol::ceil);
     Rhomb.Draw();
-    Rhombes R2;
-    R2.InputParam();
-    R2.Draw();
     return 0;
 }

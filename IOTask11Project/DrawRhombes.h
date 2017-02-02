@@ -1,27 +1,21 @@
-
 #ifndef DrawRhombes_h
 #define DrawRhombes_h
 #include <iostream>
 
 class Rhombes {
+public:
+    enum class Symbol { star = 1, ceil, plus };
 
-    struct parametrs {
-        int height;
-        int symbol_number;
-        enum Symbol {star = 1, ceil, plus};
-        Symbol symbol_enum;
+    Rhombes(int h, Symbol stars);
+    void Draw();
+private:
+    struct parametrs { 
+        int height;  
+        Symbol symbol_number;         
     };
     parametrs ofRhombes;
 
-    char GetSymb(int symbol_num);
-    char GetSymb(enum symbol_enum);
-    void Print(char symbol, int amount);
-
-public:
-    Rhombes(int h, int symbol_num);
-    Rhombes() = default;
-
-    void InputParam();
-    void Draw();
+    char GetSymb(Symbol symbol_number);
+    void Print(char symbol, int amount);  
 };
 #endif /* DrawRhombes_h */
