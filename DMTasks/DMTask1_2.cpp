@@ -1,25 +1,43 @@
+// DMTask1_2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
 #include <iostream>
 #include <cstdlib>
 
 int main()
 {
-    int element = 1, size = 1, count = 0;
-    int *pArray =  (int *) calloc(size, size * sizeof(int));// pArray = nullptr
+    auto size = 1;
+    int * pArray = (int*)malloc(size * sizeof(int));
+
+    if (pArray == nullptr) {
+        std::cerr << "Error!";
+        exit(1);
+    }
+
+    auto count = 0, element = 1;
     while (element > 0) {
         std::cout << "Enter the number: ";
         std::cin >> element;
+        
         if (element > 0) {
-            if (size <= count){
-                pArray = (int *) realloc(pArray, ++size * sizeof(int));
-            }
-            pArray[count] = element;
             ++count;
+            int * newpArray = (int*)realloc(pArray, count * sizeof(int));
+
+            if (newpArray != nullptr) {
+                pArray = newpArray;
+                newpArray[count - 1] = element;
+            }
+            else {
+                free(pArray);
+                std::cerr << "Error!";
+                exit(1);
+            }
         }
     }
-    
-    for (int i = 0; i < count; ++i) {
+
+    for (int i = 0; i < count; ++i)
         std::cout << pArray[i] << " ";
-    }
     free(pArray);
     return 0;
 }
