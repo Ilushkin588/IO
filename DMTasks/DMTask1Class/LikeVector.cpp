@@ -49,8 +49,37 @@ int LikeVector::sizeOfVector() {
 int LikeVector::capacity() {
     return count;
 }
+bool LikeVector::empty() {
+    if (count == 0)
+        return true;
+    else
+        return false;
+}
+void LikeVector::clear() {
+    if (count != 0) {
+        count = 0;
+        size = 1;
+    }
+    pArray = new int[size];
+}
+int LikeVector::atIndex(int n) {
+        if (n < 0 || n >= count)
+        {
+            throw 1;
+        }
+        else
+            return pArray[n];
+}
+std::ostream& operator<<(std::ostream& os, const LikeVector& vect) {
+    for (int i = 0; i < vect.count; ++i) 
+        os << vect.pArray[i] << " ";
+    os << "\n";
+    return os;
+}
+int& LikeVector::operator [](int n) {
+    return pArray[n];
+}
+
 LikeVector::~LikeVector() {
     delete[] pArray;
 }
-
-
